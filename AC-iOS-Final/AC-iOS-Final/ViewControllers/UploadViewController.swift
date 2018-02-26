@@ -41,6 +41,8 @@ class UploadViewController: UIViewController {
         }
         DBService.manager.newPost(comment: commentText, image: postImageView.image)
         showAlert(title: "Success", message: "your post was added!")
+        self.commentTextField.text = nil
+        self.postImageView.image = nil 
         
     }
     
