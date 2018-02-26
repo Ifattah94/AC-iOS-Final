@@ -18,6 +18,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailTF.delegate = self
+        passwordTF.delegate = self
 
     }
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
@@ -74,4 +76,15 @@ class LoginViewController: UIViewController {
     
     
     
+}
+
+extension LoginViewController : UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.resignFirstResponder()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true 
+    }
 }

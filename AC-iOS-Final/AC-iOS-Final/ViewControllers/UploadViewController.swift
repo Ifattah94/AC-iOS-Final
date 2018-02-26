@@ -20,6 +20,7 @@ class UploadViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePickerController.delegate = self
+        commentTextField.delegate = self
         
 
         
@@ -85,3 +86,17 @@ extension UploadViewController: UIImagePickerControllerDelegate {
 extension UploadViewController: UINavigationControllerDelegate {
     
 }
+
+extension UploadViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.resignFirstResponder()
+    }
+    
+}
+
+
